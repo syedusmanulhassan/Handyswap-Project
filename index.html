@@ -16,7 +16,7 @@
         
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-            background-color: #f0f8ff; /* Matches the light blue image */
+            background-color: #f0f8ff; 
             color: #111;
             overflow-x: hidden; 
         }
@@ -27,7 +27,7 @@
             padding: 10px 5%; 
             height: 90px; 
             display: flex;
-            justify-content: space-between; 
+            justify-content: space-between; /* Pushes Logo to Left, Text to Right */
             align-items: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             position: relative;
@@ -38,7 +38,7 @@
             height: 60px; 
             width: auto;
             object-fit: contain;
-            display: block;
+            display: block; /* Ensures it sits correctly */
         }
         
         .launch-info {
@@ -52,27 +52,27 @@
             gap: 8px;
         }
 
-        /* --- 3. HERO SECTION (New Static Design) --- */
+        /* --- 3. HERO SECTION (Static Background) --- */
         .hero-section {
             position: relative;
             width: 100%;
-            height: calc(100vh - 90px); /* Full height */
-            min-height: 600px;
+            height: calc(100vh - 90px); 
+            min-height: 650px; /* Slightly taller to fit buttons */
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        /* The Background Image */
+        /* Background Image */
         .hero-bg-img {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Covers the area */
-            object-position: center; /* Centers the image */
+            object-fit: cover; 
+            object-position: center; 
             z-index: 1;
         }
 
@@ -81,7 +81,7 @@
             position: relative;
             z-index: 10;
             text-align: center;
-            max-width: 700px;
+            max-width: 750px;
             padding: 20px;
         }
 
@@ -136,13 +136,21 @@
             display: block; 
         }
 
-        /* --- CTA BUTTON (Best Sellers) --- */
+        /* --- BUTTONS AREA --- */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Primary Button (Best Sellers) */
         .cta-button {
             background-color: #3b82f6;
             color: white;
-            padding: 16px 45px;
+            padding: 16px 50px;
             border-radius: 50px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 700;
             display: inline-flex;
             align-items: center;
@@ -156,36 +164,27 @@
             transform: translateY(-2px); 
         }
 
-        /* --- 4. VIDEO SECTION --- */
-        .video-section {
-            padding: 60px 5%;
-            background-color: #ffffff;
-            text-align: center;
+        /* Secondary Link (Contact) */
+        .contact-link {
+            color: #333;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+        .contact-link:hover {
+            background: white;
+            color: #3b82f6;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        .video-container {
-            width: 100%;
-            max-width: 1100px; 
-            margin: 0 auto;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-            position: relative;
-            background: #000;
-            line-height: 0; 
-        }
-
-        .video-container video {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover; 
-        }
-
-        .section-title { font-size: 2.2rem; font-weight: 800; color: #111; margin-bottom: 10px; }
-        .section-desc { font-size: 1rem; color: #666; margin-bottom: 30px; }
-
-        /* --- 5. FOOTER (Updated Text) --- */
+        /* --- 5. FOOTER --- */
         .trust-footer {
             background-color: #f9fafb; 
             color: #000; 
@@ -205,7 +204,7 @@
             h1 { font-size: 2.5rem; }
             .hero-content { width: 95%; }
             
-            /* On mobile, text needs background to be readable over the image */
+            /* Box styling for readability on mobile */
             .hero-content {
                 background: rgba(255,255,255,0.85);
                 backdrop-filter: blur(5px);
@@ -246,23 +245,17 @@
                 <div class="time-box"><span id="seconds">00</span><label>Secs</label></div>
             </div>
 
-            <a href="#" class="cta-button">
-                Best Sellers <i class="fa-solid fa-chevron-right"></i>
-            </a>
+            <div class="button-group">
+                <a href="#" class="cta-button">
+                    Best Sellers <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                
+                <a href="mailto:hello@handyswap.com" class="contact-link">
+                    <i class="fa-regular fa-envelope"></i> hello@handyswap.com
+                </a>
+            </div>
         </div>
 
-    </section>
-
-    <section class="video-section">
-        <h2 class="section-title">How It Works</h2>
-        <p class="section-desc">See how easy it is to trade in your device and get paid instantly.</p>
-        
-        <div class="video-container">
-            <video autoplay muted loop playsinline>
-                <source src="./video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
     </section>
 
     <footer class="trust-footer">
