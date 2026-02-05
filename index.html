@@ -3,310 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Handy Swap - Launching Soon</title>
-    
-    <link rel="icon" type="image/png" href="./favicon.png">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>S | The Future of Connection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* --- 2. GLOBAL STYLES --- */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; } /* Makes the scroll smooth */
-        
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-            background-color: #f4f7f6;
-            color: #333;
-            overflow-x: hidden; 
-        }
-
-        /* --- 3. HEADER --- */
-        header {
-            background: white;
-            padding: 10px 5%; 
-            height: 90px; 
-            display: flex;
-            justify-content: space-between; 
-            align-items: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            position: relative;
-            z-index: 100;
-        }
-
-        .logo-container img { 
-            height: 60px; 
-            width: auto;
-            object-fit: contain;
-            display: block;
-        }
-        
-        .launch-info {
-            font-size: 0.95rem;
-            font-weight: 800;
-            color: #3b82f6; 
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* --- 4. HERO SLIDER BLOCK --- */
-        .hero-slider-container {
-            position: relative;
-            width: 100%;
-            height: calc(100vh - 90px); /* Fill screen minus header */
-            min-height: 600px;
-            overflow: hidden;
-            background-color: #e6f7ff; 
-        }
-
-        /* Full Background Images */
-        .slide-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* COVERS the whole background */
-            object-position: center; 
-            opacity: 0; 
-            transition: opacity 1.5s ease-in-out; 
-            z-index: 1;
-        }
-
-        .slide-bg.active { opacity: 1; }
-
-        /* Dark Overlay */
-        .overlay-dim {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.2); 
-            z-index: 2;
-        }
-
-        /* Center Text Box */
-        .hero-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10; 
-            text-align: center;
-            width: 90%;
-            max-width: 650px;
-            
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 50px 40px;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-            border: 1px solid rgba(255,255,255,0.8);
-        }
-
-        h1 { font-size: 3.2rem; color: #111; margin-bottom: 15px; font-weight: 900; line-height: 1.1; }
-        p.subtitle { font-size: 1.1rem; color: #555; margin-bottom: 30px; line-height: 1.5; }
-
-        /* Countdown */
-        #countdown { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
-        .time-box { background: #fff; padding: 10px; border-radius: 12px; min-width: 70px; text-align: center; box-shadow: 0 5px 15px rgba(59, 130, 246, 0.15); border: 1px solid #eef; }
-        .time-box span { display: block; font-size: 1.6rem; font-weight: 800; color: #3b82f6; }
-        .time-box label { font-size: 0.7rem; color: #666; text-transform: uppercase; font-weight: 700; margin-top: 5px; display:block; }
-
-        /* CTA Button */
-        .cta-button {
-            background-color: #3b82f6;
-            color: white;
-            padding: 18px 50px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
-        }
-        .cta-button:hover { background-color: #2563eb; transform: scale(1.05); }
-
-        /* --- 5. SCROLL DOWN BUTTON --- */
-        .scroll-down-btn {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 20;
-            color: white;
-            font-size: 2rem;
-            animation: bounce 2s infinite;
-            cursor: pointer;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: 0.3s;
-        }
-
-        .scroll-down-btn:hover { opacity: 1; color: #3b82f6; }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
-            40% {transform: translateX(-50%) translateY(-10px);}
-            60% {transform: translateX(-50%) translateY(-5px);}
-        }
-
-        /* --- 6. VIDEO SECTION --- */
-        .video-section {
-            padding: 60px 5%;
-            background-color: #ffffff;
-            text-align: center;
-        }
-
-        .video-container {
-            width: 100%;
-            max-width: 1100px; 
-            margin: 0 auto;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-            position: relative;
-            background: #000;
-            line-height: 0; 
-        }
-
-        .video-container video {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover; 
-        }
-
-        .section-title { font-size: 2.5rem; font-weight: 800; color: #111; margin-bottom: 15px; }
-        .section-desc { font-size: 1.1rem; color: #666; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; }
-
-        /* --- 7. FOOTER --- */
-        .trust-footer {
-            background-color: #f9fafb; 
-            color: #000000; 
-            padding: 30px 0;
-            font-size: 0.85rem;
-            text-align: center;
-            border-top: 1px solid #eee; 
-            position: relative;
-        }
-        .trust-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; padding: 0 20px; }
-        .trust-item { display: flex; align-items: center; gap: 8px; font-weight: 700; text-transform: uppercase; color: #222; }
-        .trust-icon { font-size: 1.1rem; color: #3b82f6; } 
-        .stars { color: #00b67a; }
-
-        /* --- 8. MOBILE RESPONSIVE --- */
-        @media (max-width: 768px) {
-            header { flex-direction: column; height: auto; padding: 15px; gap: 10px; }
-            h1 { font-size: 2.2rem; }
-            .hero-content { padding: 30px 20px; width: 95%; max-width: 95%; }
-            p.subtitle { font-size: 1rem; margin-bottom: 20px; }
-            .cta-button { padding: 15px 30px; font-size: 1rem; width: 100%; justify-content: center; }
-            .time-box { min-width: 60px; padding: 8px; }
-            .time-box span { font-size: 1.4rem; }
-            .trust-container { flex-direction: column; gap: 15px; }
-            .section-title { font-size: 2rem; }
-            /* Adjust scroll button for mobile */
-            .scroll-down-btn { bottom: 20px; font-size: 1.5rem; }
-        }
+        html { scroll-behavior: smooth; }
+        .hero-gradient { background: linear-gradient(135deg, #f0f9ff 0%, #bae6fd 100%); }
+        .glass { background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); }
+        .float-anim { animation: float 4s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
     </style>
 </head>
-<body>
+<body class="hero-gradient font-sans text-slate-900 overflow-x-hidden">
 
-    <header>
-        <div class="logo-container">
-            <img src="./logo.png" alt="Handy Swap" onerror="this.style.display='none';">
-        </div>
-        <div class="launch-info">
-            🚀 Official Launch: April 1st
-        </div>
-    </header>
+    <nav class="w-full py-6 px-10 flex justify-between items-center fixed top-0 z-50 glass">
+        <img src="favicon.png" alt="S Logo" class="w-10 h-10">
+        <a href="#signup" class="bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-sm hover:bg-blue-700 transition-all">Join Waitlist</a>
+    </nav>
 
-    <section class="hero-slider-container">
-        
-        <div class="overlay-dim"></div>
+    <section class="min-h-screen flex flex-col items-center justify-center pt-24 px-6 text-center">
+        <div class="max-w-3xl">
+            <h1 class="text-5xl md:text-7xl font-black tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-br from-blue-700 to-blue-400">
+                Share the moment.<br>As it happens.
+            </h1>
+            <p class="text-lg md:text-xl text-slate-700 mb-10 leading-relaxed max-w-xl mx-auto">
+                No filters, no noise. Just real connections with the people who matter most. Coming April 1st.
+            </p>
 
-        <img src="./phone.png" class="slide-bg active" alt="Slide 1">
-        
-        <img src="./group.png" class="slide-bg" alt="Slide 2">
-
-        <div class="hero-content">
-            <h1>Smartphone<br>Trade In</h1>
-            
-            <div id="countdown">
-                <div class="time-box"><span id="days">00</span><label>Days</label></div>
-                <div class="time-box"><span id="hours">00</span><label>Hours</label></div>
-                <div class="time-box"><span id="minutes">00</span><label>Mins</label></div>
-                <div class="time-box"><span id="seconds">00</span><label>Secs</label></div>
+            <div id="signup" class="glass p-2 rounded-2xl shadow-xl flex flex-col sm:flex-row gap-2 mb-12 max-w-lg mx-auto">
+                <input type="email" placeholder="Enter your email" class="bg-white/80 border-none rounded-xl px-4 py-4 flex-grow focus:outline-none">
+                <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-xl transition-all shadow-lg">Notify Me</button>
             </div>
 
-            <p class="subtitle">Turn your old mobile device into credit.<br>Highest market rates guaranteed.</p>
+            <div class="flex gap-6 justify-center mb-16">
+                <div class="text-center">
+                    <span id="days" class="text-4xl font-black text-blue-900 block">00</span>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-blue-500">Days</span>
+                </div>
+                <div class="text-center">
+                    <span id="hours" class="text-4xl font-black text-blue-900 block">00</span>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-blue-500">Hours</span>
+                </div>
+                <div class="text-center">
+                    <span id="minutes" class="text-4xl font-black text-blue-900 block">00</span>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-blue-500">Mins</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex justify-center items-end gap-4 max-w-5xl px-4 pointer-events-none">
+            <img src="group.jpg" class="w-1/2 rounded-t-[3rem] shadow-2xl transform translate-y-8 rotate-1">
+            <img src="phone.jpg" class="w-1/2 rounded-t-[3rem] shadow-2xl transform translate-y-16 -rotate-1">
+        </div>
+    </section>
+
+    <section class="py-24 bg-white px-6">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-12 text-center">
+            <div class="p-6">
+                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">⚡</div>
+                <h3 class="font-bold text-xl mb-2">Instant Capture</h3>
+                <p class="text-slate-500">Share your world in real-time with zero lag and high-fidelity video.</p>
+            </div>
+            <div class="p-6">
+                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">🔒</div>
+                <h3 class="font-bold text-xl mb-2">Pure Privacy</h3>
+                <p class="text-slate-500">Your data belongs to you. No tracking, no invasive ads. Ever.</p>
+            </div>
+            <div class="p-6">
+                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">🤝</div>
+                <h3 class="font-bold text-xl mb-2">Deep Connection</h3>
+                <p class="text-slate-500">Designed to bring you closer to your inner circle, not just followers.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 px-6 border-t border-slate-100 bg-white">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-2">
+                <img src="favicon.png" class="w-6 h-6 grayscale opacity-50">
+                <span class="font-bold text-slate-400">© 2026 S Social.</span>
+            </div>
             
-            <a href="mailto:office@handyswap.com" class="cta-button">
-                <i class="fa-regular fa-envelope"></i> Contact Us: office@handyswap.com
-            </a>
-        </div>
-
-        <a href="#video-section" class="scroll-down-btn">
-            <i class="fa-solid fa-chevron-down"></i>
-        </a>
-
-    </section>
-
-    <section class="video-section" id="video-section">
-        <h2 class="section-title">How It Works</h2>
-        <p class="section-desc">See how easy it is to trade in your device and get paid instantly.</p>
-        
-        <div class="video-container">
-            <video autoplay muted loop playsinline>
-                <source src="./video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </section>
-
-    <footer class="trust-footer">
-        <div class="trust-container">
-            <div class="trust-item"><i class="fa-solid fa-rotate-left trust-icon"></i> 30-Day Returns</div>
-            <div class="trust-item"><i class="fa-solid fa-shield-halved trust-icon"></i> 12-Month Warranty</div>
-            <div class="trust-item"><i class="fa-solid fa-truck-fast trust-icon"></i> Free Shipping</div>
-            <div class="trust-item"><i class="fa-solid fa-star stars"></i> Trustpilot</div>
+            <div class="flex gap-6 text-slate-400 font-semibold uppercase text-xs tracking-widest">
+                <a href="#" class="hover:text-blue-600 transition-colors">Twitter</a>
+                <a href="#" class="hover:text-blue-600 transition-colors">Instagram</a>
+                <a href="#" class="hover:text-blue-600 transition-colors">Discord</a>
+            </div>
         </div>
     </footer>
 
     <script>
-        // --- SLIDER LOGIC (10 Seconds) ---
-        const slides = document.querySelectorAll('.slide-bg');
-        let currentSlide = 0;
-
-        function nextSlide() {
-            if(slides.length > 0) {
-                slides[currentSlide].classList.remove('active');
-                currentSlide = (currentSlide + 1) % slides.length;
-                slides[currentSlide].classList.add('active');
-            }
-        }
-        setInterval(nextSlide, 10000); // 10000ms = 10 Seconds
-
-        // --- COUNTDOWN LOGIC ---
-        const currentYear = new Date().getFullYear();
-        let launchDate = new Date(`April 1, ${currentYear} 00:00:00`).getTime();
-        const now = new Date().getTime();
-        if (now > launchDate) { launchDate = new Date(`April 1, ${currentYear + 1} 00:00:00`).getTime(); }
-
-        setInterval(function() {
+        const targetDate = new Date("April 1, 2026 00:00:00").getTime();
+        function updateTimer() {
             const now = new Date().getTime();
-            const distance = launchDate - now;
-            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
-        }, 1000);
+            const diff = targetDate - now;
+            if (diff < 0) return;
+            document.getElementById("days").innerText = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+            document.getElementById("hours").innerText = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
     </script>
-
 </body>
 </html>
