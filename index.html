@@ -6,7 +6,6 @@
     <title>Handy Swap - Premium iPhones</title>
     
     <link rel="icon" type="image/png" href="./favicon.png">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -27,7 +26,7 @@
             padding: 10px 5%; 
             height: 90px; 
             display: flex;
-            justify-content: space-between; /* Pushes Logo to Left, Text to Right */
+            justify-content: space-between; 
             align-items: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             position: relative;
@@ -38,7 +37,7 @@
             height: 60px; 
             width: auto;
             object-fit: contain;
-            display: block; /* Ensures it sits correctly */
+            display: block; 
         }
         
         .launch-info {
@@ -52,19 +51,19 @@
             gap: 8px;
         }
 
-        /* --- 3. HERO SECTION (Static Background) --- */
+        /* --- 3. HERO SECTION --- */
         .hero-section {
             position: relative;
             width: 100%;
             height: calc(100vh - 90px); 
-            min-height: 650px; /* Slightly taller to fit buttons */
+            min-height: 650px; 
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        /* Background Image */
+        /* FIXED: Now correctly pointing to .png */
         .hero-bg-img {
             position: absolute;
             top: 0;
@@ -76,7 +75,6 @@
             z-index: 1;
         }
 
-        /* Content Center */
         .hero-content {
             position: relative;
             z-index: 10;
@@ -85,7 +83,6 @@
             padding: 20px;
         }
 
-        /* Typography */
         h1 { 
             font-size: 3.5rem; 
             color: #000; 
@@ -103,7 +100,7 @@
             font-weight: 500;
         }
 
-        /* --- COUNTDOWN TIMER --- */
+        /* --- COUNTDOWN --- */
         #countdown { 
             display: flex; 
             justify-content: center; 
@@ -120,23 +117,10 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
         }
         
-        .time-box span { 
-            display: block; 
-            font-size: 1.6rem; 
-            font-weight: 800; 
-            color: #3b82f6; 
-        }
-        
-        .time-box label { 
-            font-size: 0.65rem; 
-            color: #666; 
-            text-transform: uppercase; 
-            font-weight: 700; 
-            margin-top: 5px; 
-            display: block; 
-        }
+        .time-box span { display: block; font-size: 1.6rem; font-weight: 800; color: #3b82f6; }
+        .time-box label { font-size: 0.65rem; color: #666; text-transform: uppercase; font-weight: 700; margin-top: 5px; display: block; }
 
-        /* --- BUTTONS AREA --- */
+        /* --- BUTTONS --- */
         .button-group {
             display: flex;
             flex-direction: column;
@@ -144,7 +128,6 @@
             gap: 15px;
         }
 
-        /* Primary Button (Best Sellers) */
         .cta-button {
             background-color: #3b82f6;
             color: white;
@@ -159,12 +142,8 @@
             transition: 0.3s;
             box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25);
         }
-        .cta-button:hover { 
-            background-color: #2563eb; 
-            transform: translateY(-2px); 
-        }
+        .cta-button:hover { background-color: #2563eb; transform: translateY(-2px); }
 
-        /* Secondary Link (Contact) */
         .contact-link {
             color: #333;
             font-weight: 600;
@@ -178,11 +157,7 @@
             border-radius: 30px;
             transition: 0.3s;
         }
-        .contact-link:hover {
-            background: white;
-            color: #3b82f6;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
+        .contact-link:hover { background: white; color: #3b82f6; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
 
         /* --- 5. FOOTER --- */
         .trust-footer {
@@ -203,8 +178,6 @@
             header { flex-direction: column; height: auto; padding: 15px; gap: 10px; }
             h1 { font-size: 2.5rem; }
             .hero-content { width: 95%; }
-            
-            /* Box styling for readability on mobile */
             .hero-content {
                 background: rgba(255,255,255,0.85);
                 backdrop-filter: blur(5px);
@@ -228,7 +201,7 @@
 
     <section class="hero-section">
         
-        <img src="./hero-bg.jpg" class="hero-bg-img" alt="Background">
+        <img src="./hero-bg.png" class="hero-bg-img" alt="Background">
 
         <div class="hero-content">
             <h1>Premium iPhones<br>Smart Prices</h1>
@@ -268,7 +241,6 @@
     </footer>
 
     <script>
-        // COUNTDOWN LOGIC
         const currentYear = new Date().getFullYear();
         let launchDate = new Date(`April 1, ${currentYear} 00:00:00`).getTime();
         const now = new Date().getTime();
