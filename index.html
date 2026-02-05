@@ -3,106 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S | The Future of Connection</title>
+    <title>S Social | Official Launch</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        html { scroll-behavior: smooth; }
-        .hero-gradient { background: linear-gradient(135deg, #f0f9ff 0%, #bae6fd 100%); }
-        .glass { background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); }
-        .float-anim { animation: float 4s ease-in-out infinite; }
-        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; background-color: #f8fbfe; }
+        
+        /* Matching the light blue organic background from your phone.jpg */
+        .bg-custom-blue { background-color: #bae6fd; }
+        
+        /* The organic blob shape from your group.jpg reference */
+        .blob-frame {
+            clip-path: font-variant-caps;
+            border-radius: 45% 55% 70% 30% / 30% 40% 60% 70%;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
     </style>
 </head>
-<body class="hero-gradient font-sans text-slate-900 overflow-x-hidden">
+<body class="overflow-x-hidden">
 
-    <nav class="w-full py-6 px-10 flex justify-between items-center fixed top-0 z-50 glass">
-        <img src="favicon.png" alt="S Logo" class="w-10 h-10">
-        <a href="#signup" class="bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-sm hover:bg-blue-700 transition-all">Join Waitlist</a>
+    <nav class="flex justify-between items-center px-10 py-6 absolute w-full z-50">
+        <img src="favicon.png" alt="S Logo" class="w-12 h-12">
+        <div class="hidden md:flex gap-8 text-sm font-bold uppercase tracking-widest text-slate-500">
+            <a href="#" class="hover:text-blue-600 transition">Mission</a>
+            <a href="#" class="hover:text-blue-600 transition">Privacy</a>
+            <a href="#" class="bg-black text-white px-6 py-2 rounded-full hover:bg-blue-600 transition">Join Early Access</a>
+        </div>
     </nav>
 
-    <section class="min-h-screen flex flex-col items-center justify-center pt-24 px-6 text-center">
-        <div class="max-w-3xl">
-            <h1 class="text-5xl md:text-7xl font-black tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-br from-blue-700 to-blue-400">
-                Share the moment.<br>As it happens.
+    <div class="relative min-h-screen flex flex-col md:flex-row items-center pt-20 md:pt-0">
+        
+        <div class="w-full md:w-1/2 px-10 md:px-24 z-10 text-center md:text-left">
+            <h2 class="text-blue-600 font-bold tracking-widest uppercase text-sm mb-4">Coming April 01, 2026</h2>
+            <h1 class="text-6xl md:text-8xl font-black text-slate-900 leading-none mb-6">
+                The New <br><span class="text-blue-500">Standard.</span>
             </h1>
-            <p class="text-lg md:text-xl text-slate-700 mb-10 leading-relaxed max-w-xl mx-auto">
-                No filters, no noise. Just real connections with the people who matter most. Coming April 1st.
+            <p class="text-slate-600 text-lg mb-10 max-w-md">
+                Experience a social platform built on authenticity. No algorithms, just the people you love.
             </p>
 
-            <div id="signup" class="glass p-2 rounded-2xl shadow-xl flex flex-col sm:flex-row gap-2 mb-12 max-w-lg mx-auto">
-                <input type="email" placeholder="Enter your email" class="bg-white/80 border-none rounded-xl px-4 py-4 flex-grow focus:outline-none">
-                <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-xl transition-all shadow-lg">Notify Me</button>
-            </div>
-
-            <div class="flex gap-6 justify-center mb-16">
+            <div class="flex gap-4 mb-10 justify-center md:justify-start">
                 <div class="text-center">
-                    <span id="days" class="text-4xl font-black text-blue-900 block">00</span>
-                    <span class="text-[10px] uppercase font-bold tracking-widest text-blue-500">Days</span>
+                    <div id="days" class="text-4xl font-bold text-slate-900 glass-card w-20 h-20 flex items-center justify-center rounded-2xl shadow-sm">00</div>
+                    <span class="text-[10px] uppercase font-bold text-slate-400 mt-2 block">Days</span>
                 </div>
                 <div class="text-center">
-                    <span id="hours" class="text-4xl font-black text-blue-900 block">00</span>
-                    <span class="text-[10px] uppercase font-bold tracking-widest text-blue-500">Hours</span>
+                    <div id="hours" class="text-4xl font-bold text-slate-900 glass-card w-20 h-20 flex items-center justify-center rounded-2xl shadow-sm">00</div>
+                    <span class="text-[10px] uppercase font-bold text-slate-400 mt-2 block">Hours</span>
                 </div>
                 <div class="text-center">
-                    <span id="minutes" class="text-4xl font-black text-blue-900 block">00</span>
-                    <span class="text-[10px] uppercase font-bold tracking-widest text-blue-500">Mins</span>
+                    <div id="minutes" class="text-4xl font-bold text-slate-900 glass-card w-20 h-20 flex items-center justify-center rounded-2xl shadow-sm">00</div>
+                    <span class="text-[10px] uppercase font-bold text-slate-400 mt-2 block">Mins</span>
                 </div>
             </div>
+
+            <form class="flex flex-col sm:flex-row gap-3 max-w-md">
+                <input type="email" placeholder="Email address" class="flex-grow px-6 py-4 rounded-full border border-slate-200 focus:ring-2 ring-blue-500 outline-none">
+                <button class="bg-blue-600 text-white font-bold px-8 py-4 rounded-full shadow-lg shadow-blue-200 hover:bg-blue-700 transition">Reserve Handle</button>
+            </form>
         </div>
 
-        <div class="flex justify-center items-end gap-4 max-w-5xl px-4 pointer-events-none">
-            <img src="group.jpg" class="w-1/2 rounded-t-[3rem] shadow-2xl transform translate-y-8 rotate-1">
-            <img src="phone.jpg" class="w-1/2 rounded-t-[3rem] shadow-2xl transform translate-y-16 -rotate-1">
-        </div>
-    </section>
-
-    <section class="py-24 bg-white px-6">
-        <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-12 text-center">
-            <div class="p-6">
-                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">⚡</div>
-                <h3 class="font-bold text-xl mb-2">Instant Capture</h3>
-                <p class="text-slate-500">Share your world in real-time with zero lag and high-fidelity video.</p>
-            </div>
-            <div class="p-6">
-                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">🔒</div>
-                <h3 class="font-bold text-xl mb-2">Pure Privacy</h3>
-                <p class="text-slate-500">Your data belongs to you. No tracking, no invasive ads. Ever.</p>
-            </div>
-            <div class="p-6">
-                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">🤝</div>
-                <h3 class="font-bold text-xl mb-2">Deep Connection</h3>
-                <p class="text-slate-500">Designed to bring you closer to your inner circle, not just followers.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-12 px-6 border-t border-slate-100 bg-white">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="flex items-center gap-2">
-                <img src="favicon.png" class="w-6 h-6 grayscale opacity-50">
-                <span class="font-bold text-slate-400">© 2026 S Social.</span>
-            </div>
+        <div class="w-full md:w-1/2 relative h-[600px] md:h-screen flex items-center justify-center mt-10 md:mt-0">
+            <div class="absolute inset-0 bg-custom-blue opacity-20 blob-frame scale-110"></div>
             
-            <div class="flex gap-6 text-slate-400 font-semibold uppercase text-xs tracking-widest">
-                <a href="#" class="hover:text-blue-600 transition-colors">Twitter</a>
-                <a href="#" class="hover:text-blue-600 transition-colors">Instagram</a>
-                <a href="#" class="hover:text-blue-600 transition-colors">Discord</a>
+            <div class="relative z-20 transform -rotate-6 transition-all duration-1000 hover:rotate-0 cursor-pointer">
+                <img src="phone.jpg" alt="App Interface" class="w-[300px] md:w-[400px] rounded-[3rem] shadow-2xl border-[12px] border-white">
+            </div>
+
+            <div class="absolute top-1/4 right-0 z-10 transform translate-x-12 hidden lg:block">
+                <img src="group.jpg" alt="Community" class="w-[350px] rounded-[3rem] shadow-xl border-8 border-white opacity-90">
             </div>
         </div>
-    </footer>
+    </div>
 
     <script>
-        const targetDate = new Date("April 1, 2026 00:00:00").getTime();
-        function updateTimer() {
+        const target = new Date("April 1, 2026 00:00:00").getTime();
+        setInterval(() => {
             const now = new Date().getTime();
-            const diff = targetDate - now;
-            if (diff < 0) return;
-            document.getElementById("days").innerText = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
-            document.getElementById("hours").innerText = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-            document.getElementById("minutes").innerText = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-        }
-        setInterval(updateTimer, 1000);
-        updateTimer();
+            const d = target - now;
+            document.getElementById("days").innerText = Math.floor(d / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerText = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").innerText = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
+        }, 1000);
     </script>
 </body>
 </html>
